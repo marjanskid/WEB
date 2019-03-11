@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>DM WEB PROJECT</title>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<script src="js/jquery-3.3.1.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/homepage.css">
+<script src="js/loadpage.js"></script>
+<script src="js/homepage.js"></script>
+
+</head>
+<body>
+	<div class="wrapper">
+		<nav>
+			<div class="home">
+				<a href="#">POČETNA</a>
+			</div>
+
+			<div class="menu">
+				<ul>
+					<li><a id="restaurantsPanel" href="restaurants.html">Restorani</a></li>
+					<li><a id="pretragaPanel" href="pretraga.html">Pretraga</a></li>
+					<li><a id="korpaPanel" href="korpa.html">Korpa</a></li>
+					<li><a id="profilPanel" href="profil.html">Profil</a></li>
+					<li><a class="active" id="login" href="login-register.html">Log
+							In</a></li>
+					<li><a class="active" id="logout" href="#">Log Out</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<section class="content">
+			<br>
+			<div class="container text-center">
+				<h3>Pregled tipova restorana</h3>
+			</div>
+			<br>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="card text-center" style="width: 18rem;">
+							<img class="card-img-top" src="pictures/domaca.png"
+								alt="Card image cap">
+							<div class="card-body">
+								<h5 class="card-title">DOMAĆA KUHINJA</h5>
+								<p class="card-text">Sveži, pažljivo birani sastojci!</p>
+								<button id="domaca-hrana-restoran" class="btn btn-primary">Saznaj više...</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card text-center" style="width: 18rem;">
+							<img class="card-img-top" src="pictures/4_0.png"
+								alt="Card image cap">
+							<div class="card-body">
+								<h5 class="card-title">ROŠTILJ</h5>
+								<p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tradicionalno sa žara!</p>
+								<button id="rostilj-restoran" class="btn btn-primary">Saznaj više...</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card text-center" style="width: 18rem;">
+							<img class="card-img-top" src="pictures/kina2.png"
+								alt="Card image cap">
+							<div class="card-body">
+								<h5 class="card-title">KINESKA HRANA</h5>
+								<p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Slatko - kiselo - ljuto!</p>
+								<button id="kineska-hrana-restoran" class="btn btn-primary">Saznaj više...</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="card text-center" style="width: 18rem;">
+							<img class="card-img-top" src="pictures/ind.png"
+								alt="Card image cap">
+							<div class="card-body">
+								<h5 class="card-title">INDIJSKA HRANA</h5>
+								<p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Orijentalni začini!</p>
+								<button id="indijska-hrana-restoran" class="btn btn-primary">Saznaj više...</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card text-center" style="width: 18rem;">
+							<img class="card-img-top" src="pictures/6_0.png"
+								alt="Card image cap">
+							<div class="card-body">
+								<h5 class="card-title">POSLASTIČARNICA</h5>
+								<p class="card-text">Kolači, sladoled, palačinke...</p>
+								<button id="poslasticarnica-restoran" class="btn btn-primary">Saznaj više...</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card text-center" style="width: 18rem;">
+							<img class="card-img-top" src="pictures/12_0.png"
+								alt="Card image cap">
+							<div class="card-body">
+								<h5 class="card-title">PICERIJA</h5>
+								<p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Italijanski specijaliteti!</p>
+								<button id="picerija-restoran" class="btn btn-primary">Saznaj više...</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<br>
+			<div class="container text-center">
+				<h3>Pregled najpopularnijih jela i pića</h3>
+			</div>
+			<br>
+			<div style="margin-left: 35%; margin-right: 35%; width: 450px; height: 350px;">
+				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<div id="slide-to-opcije">
+
+						</div>
+					</ol>
+					<div class="carousel-inner">
+						<div id="lista-jela-i-pica">
+
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

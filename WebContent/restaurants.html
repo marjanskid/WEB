@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Restorani</title>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<script src="js/jquery-3.3.1.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/restaurants.css">
+<link rel="stylesheet" type="text/css" href="css/sidebar.css">
+<script src="js/restaurants.js"></script>
+<script src="js/loadpage.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<nav>
+			<div class="home">
+				<a href="homepage.html">POČETNA</a>
+			</div>
+
+			<div class="menu">
+				<ul>
+					<li><a id="restaurantsPanel" href="restaurants.html">Restorani</a></li>
+					<li><a id="pretragaPanel" href="pretraga.html">Pretraga</a></li>
+					<li><a id="korpaPanel" href="korpa.html">Korpa</a></li>
+					<li><a id="profilPanel" href="profil.html">Profil</a></li>
+					<li><a class="active" id="login" href="login-register.html">Log
+							In</a></li>
+					<li><a class="active" id="logout" href="#">Log Out</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div id="page-content">
+			<!-- Sidebar -->
+			<div id="sidebar-wrapper">
+				<ul class="sidebar-nav">
+					<div id="kategorije-restorana">
+						<li><a href="#" id="domaca-hrana-prikaz-restorana">Domaća hrana</a></li>
+						<li><a href="#" id="rostilj-prikaz-restorana">Roštilj</a></li>
+						<li><a href="#" id="kineska-hrana-prikaz-restorana">Kineska hrana</a></li>
+						<li><a href="#" id="indijska-hrana-prikaz-restorana">Indijska hrana</a></li>
+						<li><a href="#" id="poslasticarnica-prikaz-restorana">Poslastičarnica</a></li>
+						<li><a href="#" id="picerija-prikaz-restorana">Picerija</a></li>
+					</div>
+				</ul>
+			</div>
+			<!-- Page content -->
+			<div id="page-content-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12">
+							<a href="#" class="btn btn-success" id="sidebar-toggle">OPCIJE</a>
+						</div>
+					</div>
+					<br>
+					<div class="col-lg-8 col-lg-offset-2" id="naslov-restorani-domaca-hrana">
+						<h3>Pregled restorana domaće kuhinje...</h3>
+					</div>
+					<div class="col-lg-8 col-lg-offset-2" id="naslov-restorani-rostilj">
+						<h3>Pregled restorana koji nude roštilj...</h3>
+					</div>
+					<div class="col-lg-8 col-lg-offset-2" id="naslov-restorani-kineska-hrana">
+						<h3>Pregled restorana kineske hrane...</h3>
+					</div>
+					<div class="col-lg-8 col-lg-offset-2" id="naslov-restorani-indijska-hrana">
+						<h3>Pregled restorana indijske hrane...</h3>
+					</div>
+					<div class="col-lg-8 col-lg-offset-2" id="naslov-restorani-poslasticarnica">
+						<h3>Pregled poslastičarnica...</h3>
+					</div>
+					<div class="col-lg-8 col-lg-offset-2" id="naslov-restorani-picerija">
+						<h3>Pregled picerija...</h3>
+					</div>
+					<div class="row" id="restorani-domaca-hrana-prikaz-svi"></div>
+					<div class="row" id="restorani-rostilj-prikaz-svi"></div>
+					<div class="row" id="restorani-kineska-hrana-prikaz-svi"></div>
+					<div class="row" id="restorani-indijska-hrana-prikaz-svi"></div>
+					<div class="row" id="restorani-poslasticarnica-prikaz-svi"></div>
+					<div class="row" id="restorani-picerija-prikaz-svi"></div>
+					<div id="tabela-artikala-svi">
+						<div class="col-lg-8 col-lg-offset-2">
+							<h3 id="naslov-restorana-meni"></h3>
+						</div>
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">NAZIV</th>
+									<th scope="col">KOLIČINA</th>
+									<th scope="col">OPIS</th>
+									<th scope="col">CENA</th>
+									<th colspan="2">PORUČI</th>
+								</tr>
+							</thead>
+							<tbody id="artikli-tbody-id">
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/sidebarToggle.js"></script>
+</body>
+</html>

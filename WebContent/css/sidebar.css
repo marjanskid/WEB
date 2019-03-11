@@ -1,0 +1,59 @@
+#page-content {
+	margin-top: 120px;
+}
+
+/* Sidebar */
+#sidebar-wrapper {
+    z-index: 1;
+    position: absolute;
+    padding-left: 50px;
+    width: 300px;
+    height: 100%;
+    overflow-y: hidden;
+}
+
+/* Always take up entire screen */
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding-left: 350px;
+    padding-right: 50px;
+    text-align: justify;
+}
+
+
+/* Change with of sidebar from 300px to 0px */
+#page-content.menuDisplayed #sidebar-wrapper {
+    padding-left: 0px;
+    width: 0px;
+}
+
+/* Since we remove sidebar-wrapper, we need to change padding-left to 50px */
+#page-content.menuDisplayed #page-content-wrapper {
+    padding-left: 50px;
+}
+
+
+/* Sidebar styling - the entire ul list */
+.sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.sidebar-nav li a:hover {
+    background: #16A085;
+    color: #ddd;   
+}

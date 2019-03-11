@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//WebContent/restaurants.html=UTF-8
+encoding//src/beans/Porudzbina.java=UTF-8
+encoding//src/data/ArtikliDAO.java=UTF-8
+encoding//src/services/ArticleService.java=UTF-8
+encoding//src/services/OrderService.java=UTF-8
+encoding//src/services/RestaurantService.java=UTF-8
+encoding//src/services/UserService.java=UTF-8
+encoding//src/services/VehicleService.java=UTF-8
+encoding//src/utils/KategorijeRestorana.java=UTF-8
+encoding//src/utils/StatusPorudzbine.java=UTF-8
+encoding//src/utils/TipJela.java=UTF-8
+encoding//src/utils/Uloge.java=UTF-8

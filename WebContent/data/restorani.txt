@@ -1,0 +1,92 @@
+{
+  "0" : {
+    "naziv" : "Palazzo Bianco",
+    "adresa" : "Bulevar Cara Du\u0161ana 21",
+    "kategorijaRestorana" : "picerija",
+    "listaJela" : [ 4 ],
+    "listaPica" : [ 1 ],
+    "id" : 0,
+    "obrisan" : false
+  },
+  "1" : {
+    "naziv" : "Ananda",
+    "adresa" : "Petra Drap\u0161ina 51",
+    "kategorijaRestorana" : "doma\u0107a kuhinja",
+    "listaJela" : [ ],
+    "listaPica" : [ 3 ],
+    "id" : 1,
+    "obrisan" : false
+  },
+  "2" : {
+    "naziv" : "Dizni",
+    "adresa" : "Bulevar cara Lazara 92",
+    "kategorijaRestorana" : "poslasti\u010Darnica",
+    "listaJela" : [ 2 ],
+    "listaPica" : [ 1 ],
+    "id" : 2,
+    "obrisan" : false
+  },
+  "3" : {
+    "naziv" : "Studentska menza",
+    "adresa" : "Dr Sime Milo\u0161evi\u0107a 4",
+    "kategorijaRestorana" : "doma\u0107a kuhinja",
+    "listaJela" : [ ],
+    "listaPica" : [ ],
+    "id" : 3,
+    "obrisan" : false
+  },
+  "4" : {
+    "naziv" : "Panter",
+    "adresa" : "Bulevar kralja Petra I 29",
+    "kategorijaRestorana" : "picerija",
+    "listaJela" : [ ],
+    "listaPica" : [ ],
+    "id" : 4,
+    "obrisan" : false
+  },
+  "5" : {
+    "naziv" : "Pizzeria Ciao",
+    "adresa" : "Bra\u0107e Jovandi\u0107 1",
+    "kategorijaRestorana" : "picerija",
+    "listaJela" : [ ],
+    "listaPica" : [ ],
+    "id" : 5,
+    "obrisan" : false
+  },
+  "6" : {
+    "naziv" : " Pa to je sjajno",
+    "adresa" : "Bra\u0107e Popovi\u0107 12",
+    "kategorijaRestorana" : "indijski restoran",
+    "listaJela" : [ ],
+    "listaPica" : [ ],
+    "id" : 6,
+    "obrisan" : false
+  },
+  "7" : {
+    "naziv" : "Stev\u010Da Soul Food",
+    "adresa" : "Maksima Gorkog 17",
+    "kategorijaRestorana" : "doma\u0107a kuhinja",
+    "listaJela" : [ ],
+    "listaPica" : [ 1 ],
+    "id" : 7,
+    "obrisan" : false
+  },
+  "8" : {
+    "naziv" : "Fish & Zeleni\u0161",
+    "adresa" : "Skerli\u0107eva 2",
+    "kategorijaRestorana" : "kineski restoran",
+    "listaJela" : [ ],
+    "listaPica" : [ ],
+    "id" : 8,
+    "obrisan" : false
+  },
+  "9" : {
+    "naziv" : "Bubi Grill",
+    "adresa" : "Dimitrija Tucovi\u0107a 3",
+    "kategorijaRestorana" : "ro\u0161tilj",
+    "listaJela" : [ ],
+    "listaPica" : [ ],
+    "id" : 9,
+    "obrisan" : false
+  }
+}

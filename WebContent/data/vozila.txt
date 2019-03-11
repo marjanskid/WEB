@@ -1,0 +1,35 @@
+{
+  "0" : {
+    "marka" : "Toyota",
+    "model" : "Corola",
+    "tipVozila" : "automobil",
+    "registarskaOznaka" : "NS147DU",
+    "godinaProizvodnje" : "1998",
+    "voziloSlobodno" : true,
+    "napomena" : "Pouzdan auto",
+    "id" : 0,
+    "obrisano" : false
+  },
+  "1" : {
+    "marka" : "Aprillia",
+    "model" : "SR50",
+    "tipVozila" : "skuter",
+    "registarskaOznaka" : "NS3243",
+    "godinaProizvodnje" : "2016",
+    "voziloSlobodno" : true,
+    "napomena" : "Fin skuter",
+    "id" : 1,
+    "obrisano" : false
+  },
+  "2" : {
+    "marka" : "Capriolo",
+    "model" : "Level 7.2",
+    "tipVozila" : "bicikl",
+    "registarskaOznaka" : "nema",
+    "godinaProizvodnje" : "2018",
+    "voziloSlobodno" : false,
+    "napomena" : "MTB 27.5",
+    "id" : 2,
+    "obrisano" : false
+  }
+}

@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profil panel</title>
+    
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/validacija.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="css/profil.css">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css">
+    <script src="js/loadpage.js"></script>
+    <script src="js/profilePanel.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+
+		<!-- Navibar -->
+		<nav>
+			<div class="home">
+				<a href="homepage.html">POČETNA</a>
+			</div>
+
+			<div class="menu">
+				<ul>
+					<li><a id="restaurantsPanel" href="restaurants.html">Restorani</a></li>
+					<li><a id="pretragaPanel" href="pretraga.html">Pretraga</a></li>
+					<li><a id="korpaPanel" href="korpa.html">Korpa</a></li>
+					<li><a id="profilPanel" href="profil.html">Profil</a></li>
+					<li><a class="active" id="login" href="login-register.html">Log
+							In</a></li>
+					<li><a class="active" id="logout" href="#">Log Out</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div id="page-content">
+			<!-- Sidebar -->
+			<div id="sidebar-wrapper">
+				<ul class="sidebar-nav">
+					<div id="buyer-part">
+						<li><a href="#" id="omiljeni-restorani">Omiljeni restorani</a></li>
+						<li><a href="#" id="lista-porudzbina">Lista porudžbina</a></li>
+					</div>
+					<div id="deliverer-part">
+						<li><a href="#" id="aktuelne-porudzbine">Aktuelne porudžbine</a></li>
+						<li><a href="#" id="dodeljena-porudzbina">Dodeljena porudžbina</a></li>
+						<li><a href="#" id="istorija-porudzbina">Istorija porudžbina</a></li>
+					</div>
+					<div id="admin-part">
+						<li><a href="#" id="korisnici">Korisnici</a></li>
+						<li><a href="#" id="restorani">Restorani</a></li>
+						<li><a href="#" id="vozila-admin">Vozila</a></li>
+						<li><a href="#" id="artikli">Artikli</a></li>
+						<li><a href="#" id="porudzbine">Porudžbine</a></li>
+					</div>
+				</ul>
+			</div>
+			<!-- Page content -->
+			<div id="page-content-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12">
+							<a href="#" class="btn btn-success" id="sidebar-toggle">OPCIJE</a>
+							<br>
+							<br>
+							<div id="dobrodosli">
+								<h1>Dobrodošli na PROFIL PANEL!</h1>
+							</div>
+							<!-- **** DEO ZA KUPCE ****-->
+							<div id="omiljeni-restorani-prikaz-kupac">
+								<h1>Pregled omiljenih restorana...</h1>
+								<div class="row" id="omiljeni-restorani-prikaz"></div>
+							</div>
+							<div id="lista-porudzbina-prikaz-kupac">
+								<h1>Pregled prethodnih porudzbina...</h1>
+								<table class="table table-hover">
+										<thead class="grey lighten-2">
+											<tr>
+												<th scope="col">#ID</th>
+												<th scope="col">DATUM I VREME</th>
+												<th scope="col">STATUS</th>
+												<th scope="col">DETALJI</th>
+											</tr>
+										</thead>
+										<tbody id="lista-porudzbina-prikaz-kupac-tbody-id">
+										</tbody>
+									</table>
+							</div>
+							<!-- **** DEO ZA DOSTAVLJACE ****-->
+							<div id="aktuelne-porudzbine-prikaz-dostavljac">
+								<h1>Pregled aktuelnih porudžbina...</h1>
+								<table class="table table-hover">
+									<thead class="grey lighten-2">
+										<tr>
+											<th scope="col">#ID</th>
+											<th scope="col">DATUM I VREME</th>
+											<th scope="col">KUPAC</th>
+											<th scope="col">STATUS</th>
+											<th scope="col">DETALJI</th>
+											<th scope="col">PREUZMI</th>
+										</tr>
+									</thead>
+									<tbody id="aktuelne-porudzbine-prikaz-dostavljac-tbody-id">
+									</tbody>
+								</table>
+							</div>
+							<div id="preuzeta-porudzbina-prikaz-dostavljac">
+								<h1>Aktuelna porudžbina...</h1>
+								<table class="table table-hover">
+									<thead class="grey lighten-2">
+										<tr>
+											<th scope="col">#ID</th>
+											<th scope="col">DATUM I VREME</th>
+											<th scope="col">KUPAC</th>
+											<th scope="col">STATUS</th>
+											<th scope="col">DETALJI</th>
+											<th scope="col">DOSTAVI</th>
+										</tr>
+									</thead>
+									<tbody id="preuzeta-porudzbina-prikaz-dostavljac-tbody-id">
+									</tbody>
+								</table>
+							</div>
+							<div id="istorija-porudzbina-prikaz-dostavljac">
+								<h1>Pregled istorije porudžbina...</h1>
+								<table class="table table-hover">
+									<thead class="grey lighten-2">
+										<tr>
+											<th scope="col">#ID</th>
+											<th scope="col">DATUM I VREME</th>
+											<th scope="col">KUPAC</th>
+											<th scope="col">STATUS</th>
+											<th scope="col">DETALJI</th>
+										</tr>
+									</thead>
+									<tbody id="istorija-porudzbina-prikaz-dostavljac-tbody-id">
+									</tbody>
+								</table>
+							</div>
+							<!-- **** DEO ZA ADMINE ****-->
+							<div id="korisnici-admin-table">
+								<h1>Pregled liste korisnika...</h1>
+								<table class="table table-hover">
+									<thead class="grey lighten-2">
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">ULOGA</th>
+											<th scope="col">USERNAME</th>
+											<th scope="col">IME</th>
+											<th scope="col">PREZIME</th>
+											<th scope="col">REGISTRACIJA</th>
+											<th scope="col">TELEFON</th>
+											<th scope="col">EMAIL</th>
+											<th scope="col">IZMENA</th>
+										</tr>
+									</thead>
+									<tbody id="korisnici-tbody-id">
+									</tbody>
+								</table>
+							</div>
+							<div id="restorani-admin-table">
+								<h1>Pregled liste restorana...</h1>
+								<table class="table table-hover" id="ima-restorana">
+									<thead class="grey lighten-2">
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">NAZIV</th>
+											<th scope="col">ADRESA</th>
+											<th scope="col">KATEGORIJA</th>
+											<th scope="col">IZMENA</th>
+											<th scope="col">BRISANJE</th>
+										</tr>
+									</thead>
+									<tbody id="restorani-tbody-id">
+									</tbody>
+								</table>
+								<br/>
+                                <button type="button" class="btn btn-primary" id="dodaj-novi-restoran">Dodaj novi</button>
+							</div>
+							<div id="artikli-admin-table">
+								<h1>Pregled liste artikala...</h1>
+								<table class="table table-hover" id="ima-artikala">
+									<thead>
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">NAZIV</th>
+											<th scope="col">KOLIČINA</th>
+											<th scope="col">OPIS</th>
+											<th scope="col">CENA</th>
+											<th scope="col">IZMENA</th>
+											<th scope="col">BRISANJE</th>
+											<th scope="col">RESTORAN</th>
+										</tr>
+									</thead>
+									<tbody id="artikli-tbody-id">
+									</tbody>
+								</table>
+								<br/>
+								<button type="button" class="btn btn-primary" id="dodaj-novi-artikl">Dodaj novi</button>
+							</div>
+							<div id="vozila-admin-table">
+								<h1>Pregled liste vozila...</h1>
+								<table class="table table-hover" id="ima-vozila">
+									<thead class="grey lighten-2">
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">TIP</th>
+											<th scope="col">MARKA</th>
+											<th scope="col">MODEL</th>
+											<th scope="col">GODINA</th>
+											<th scope="col">REGISTRACIJA</th>
+											<th scope="col">NAPOMENA</th>
+											<th scope="col">IZMENA</th>
+											<th scope="col">BRISANJE</th>
+										</tr>
+									</thead>
+									<tbody id="vozila-tbody-id">
+									</tbody>
+								</table>
+								<br/>
+								<button type="button" class="btn btn-primary" id="dodaj-novo-vozilo">Dodaj novo</button>
+							</div>
+							<div id="porudzbine-admin-table">
+								<h1>Pregled liste porudžbina...</h1>
+								<table class="table table-hover" id="ima-porudzbina">
+									<thead>
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">DATUM I VREME</th>
+											<th scope="col">KUPAC</th>
+											<th scope="col">DOSTAVLJAČ</th>
+											<th scope="col">STATUS</th>
+											<th scope="col">DETALJI</th>
+											<th scope="col">IZMENA</th>
+											<th scope="col">BRISANJE</th>
+										</tr>
+									</thead>
+									<tbody id="porudzbine-tbody-id">
+									</tbody>
+								</table>
+								<br/>
+								<button type="button" class="btn btn-primary" id="dodaj-novu-porudzbinu">Dodaj novu</button>
+							</div>
+							<div id="artikli-admin-order-table">
+								<h1>Pregled liste artikala...</h1>
+								<table class="table table-hover" id="ima-artikala">
+									<thead>
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">NAZIV</th>
+											<th scope="col">KOLIČINA</th>
+											<th scope="col">OPIS</th>
+											<th scope="col">CENA</th>
+											<th colspan="2">DODAJ</th>
+										</tr>
+									</thead>
+									<tbody id="artikli-admin-order-tbody-id">
+									</tbody>
+								</table>
+								<br/>
+								<button type="button" class="btn btn-primary" id="zavrsi-ubacivanje-u-korpu">Nastavak</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/sidebarToggle.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+	<!-- ***Modalni dijalog kreiranja nove porudzbine od strane admina*** -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="kreiranje-porudzbine-admin-modal" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Nova porudžbina</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form id="kreiranje-porudzbine-admin-forma" class="form-horizontal" method="PUT" role="form">
+					<div class="modal-body">
+						<div class="form-group" id="tabela-kreiranje-porudzbine-admin-modal">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">NAZIV</th>
+										<th scope="col">CENA</th>
+									</tr>
+								</thead>
+								<tbody id="tabela-kreiranje-porudzbine-admin-tbody-id-modal">
+								</tbody>
+							</table>
+						</div>
+						<div class="form-group">
+							<div id="deo-ispod-tabele-stavki-kreiranje-porudzbine-admin-modal">
+								<table class="table table">
+									<tr>
+										<td >
+											<label class="col-sm-12 control-label" style="align-content: center">CENA PORUDŽBINE:</label>
+										</td>
+										<td>
+											<label class="col-sm-12 control-label" style="align-content: center" id="prikaz-cene-kreiranje-porudzbine-admin-modal"></label>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<div class="form-group">
+							<div>
+								<table class="table table">
+									<tr>
+										<td >
+											<label class="col-sm-8 control-label" style="align-content: center">STATUS:</label>
+										</td>
+										<td>
+											<select class="form-control" id="status-kreiranje-porudzbine-admin-modal" name="status-kreiranje-porudzbine-admin-modal">
+												<option value="poručeno">poručeno</option>
+												<option value="dostava u toku">dostava u toku</option>
+												<option value="dostavljeno">dostavljeno</option>
+												<option value="otkazano">otkazano</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td >
+											<label class="col-sm-8 control-label" style="align-content: center">KUPAC:</label>
+										</td>
+										<td>
+											<select class="form-control" id="kupac-kreiranje-porudzbine-admin-modal" name="kupac-kreiranje-porudzbine-admin-modal">
+												
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td >
+											<label class="col-sm-8 control-label" style="align-content: center">DOSTAVLJAČ:</label>
+										</td>
+										<td>
+											<select class="form-control" id="dostavljac-kreiranje-porudzbine-admin-modal" name="dostavljac-kreiranje-porudzbine-admin-modal">	
+													
+											</select>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="napomenaNovaPorudzbina" class="col-sm-8 control-label" style="align-content: center">NAPOMENA:</label>
+							<div class="col-sm-12">
+								<textarea class="form-control" rows="5" id="napomena-dostavljac-kreiranje-porudzbine-admin-modal"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<div id="bonus-poeni-prikaz-modal">
+								<table class="table table">
+									<tr>
+										<td >
+											<label class="col-sm-8 control-label" style="align-content: center">BONUS POENI:</label>
+										</td>
+										<td>
+											<select class="form-control" id="koliko-bonus-poena-kreiranje-porudzbine-admin-modal" name="koliko-bonus-poena-kreiranje-porudzbine-admin-modal">	
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+											</select>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Odustani</button>
+						<button id="potvrda-kreiranje-porudzbine-admin-modal" class="btn btn-primary">Potvrdi</button>
+					</div>	
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- ***Modalni dijalog izmene porudzbine od strane admina*** -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="izmena-porudzbine-admin-modal" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Izmena porudžbine</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form id="izmena-porudzbine-admin-forma" class="form-horizontal" method="PUT" role="form">
+					<div class="modal-body">
+						<div class="form-group" id="tabela-izmena-porudzbine-admin-modal">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">NAZIV</th>
+										<th scope="col">CENA</th>
+									</tr>
+								</thead>
+								<tbody id="tabela-izmena-porudzbine-admin-tbody-id-modal">
+								</tbody>
+							</table>
+						</div>
+						<div class="form-group">
+							<div id="deo-ispod-tabele-stavki-izmena-porudzbine-admin-modal">
+								<table class="table table">
+									<tr>
+										<td >
+											<label class="col-sm-12 control-label" style="align-content: center">CENA PORUDŽBINE:</label>
+										</td>
+										<td>
+											<label class="col-sm-12 control-label" style="align-content: center" id="prikaz-cene-izmena-porudzbine-admin-modal"></label>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<div class="form-group">
+							<div>
+								<table class="table table">
+									<tr>
+										<td >
+											<label class="col-sm-8 control-label" style="align-content: center">STATUS:</label>
+										</td>
+										<td>
+											<select class="form-control" id="status-izmena-porudzbine-admin-modal" name="status-izmena-porudzbine-admin-modal">
+												<option value="poručeno">poručeno</option>
+												<option value="dostava u toku">dostava u toku</option>
+												<option value="dostavljeno">dostavljeno</option>
+												<option value="otkazano">otkazano</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td >
+											<label class="col-sm-8 control-label" style="align-content: center">KUPAC:</label>
+										</td>
+										<td>
+											<select class="form-control" id="kupac-izmena-porudzbine-admin-modal" name="kupac-izmena-porudzbine-admin-modal">
+												
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td >
+											<label class="col-sm-8 control-label" style="align-content: center">DOSTAVLJAČ:</label>
+										</td>
+										<td>
+											<select class="form-control" id="dostavljac-izmena-porudzbine-admin-modal" name="dostavljac-izmena-porudzbine-admin-modal">	
+													<option value="">Nema dostavljača</option>
+											</select>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="napomenaNovaPorudzbina" class="col-sm-8 control-label" style="align-content: center">NAPOMENA:</label>
+							<div class="col-sm-12">
+								<textarea class="form-control" rows="5" id="napomena-dostavljac-izmena-porudzbine-admin-modal"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<div id="bonus-poeni-prikaz-modal">
+								<table class="table table">
+									<tr>
+										<td >
+											<label class="col-sm-8 control-label" style="align-content: center">BONUS POENI:</label>
+										</td>
+										<td>
+											<select class="form-control" id="koliko-bonus-poena-izmena-porudzbine-admin-modal" name="koliko-bonus-poena-izmena-porudzbine-admin-modal">	
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+											</select>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Odustani</button>
+						<button id="potvrda-izmena-porudzbine-admin-modal" class="btn btn-primary">Potvrdi</button>
+					</div>	
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- ***Modalni dijalog dodavanja novog vozila*** -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="dostavljac-izbor-vozila-modal" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Izbor prevoznog sredstva</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form id="artikl-u-restoran-forma" class="form-horizontal" method="PUT" role="form">
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="dostupnaVozila" class="col-sm-6 control-label">PREVOZNO SREDSTVO:</label>
+							<div class="col-sm-8">
+								<select id="dostupna-vozila-dostavljac" name="dostupna-vozila-dostavljac" class="form-control">
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Odustani</button>
+						<button id="potvrda-preuzmi-porudzbinu" class="btn btn-primary">Potvrda</button>
+					</div>	
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- ***Modalni dijalog pregleda detalja porudzbine korisnik*** -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="detalji-porudzbine-kupac-modal" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Detalji porudžbine</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form id="nova-porudzbina-forma" class="form-horizontal" method="GET" role="form">
+					<div class="modal-body">
+						<div class="form-group" id="tabela-stavki-u-korpi-modal">
+							<table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">NAZIV</th>
+                                        <th scope="col">CENA</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="artikli-tbody-id-modal">
+                                </tbody>
+                            </table>
+						</div>
+						<div class="form-group">
+							<div id="deo-ispod-tabele-stavki-modal">
+                                <table class="table table">
+                                    <tr>
+                                        <td >
+                                            <label class="col-sm-12 control-label" style="align-content: center">CENA PORUDŽBINE:</label>
+                                        </td>
+                                        <td>
+                                            <label class="col-sm-12 control-label" style="align-content: center" id="prikaz-cene-korpe-modal"></label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+						</div>
+						<div class="form-group">
+							<label for="napomenaNovaPorudzbina" class="col-sm-6 control-label" style="align-content: center">NAPOMENA:</label>
+							<div class="col-sm-12">
+                                <textarea class="form-control" rows="5" id="napomena-detalji-porudzbine-korisnik" readonly></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<div id="bonus-poeni-prikaz-modal">
+                                <table class="table table">
+                                    <tr>
+                                        <td >
+                                            <label class="col-sm-10 control-label" style="align-content: center">BONUS POENI:</label>
+                                        </td>
+                                        <td>
+											<label class="col-sm-6 control-label" style="align-content: center" id="bonus-poeni-detalji-porudzbine-korisnik"></label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+						</div>
+					</div>	
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- ***Modalni dijalog dodavanja novog vozila*** -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="artikl-u-restoran-modal" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Dodavanje artikla u restoran</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form id="artikl-u-restoran-forma" class="form-horizontal" method="PUT" role="form">
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="moguciRestorani" class="col-sm-6 control-label">Restorani:</label>
+							<div class="col-sm-10">
+								<select id="moguci-restorani-artikl" name="moguci-restorani-artikl" class="form-control">
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Odustani</button>
+						<button id="potvrda-artikl-u-restoran" class="btn btn-primary">Potvrdi</button>
+					</div>	
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- ***Modalni dijalog dodavanja novog vozila*** -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="novo-vozilo-modal" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Dodavanje vozila</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form id="novo-vozilo-forma" class="form-horizontal" method="POST" role="form">
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="tipNovoVozilo" class="col-sm-6 control-label">TIP VOZILA:</label>
+							<div class="col-sm-10">
+								<select id="tip-novo-vozilo" name="tip-novo-vozilo" class="form-control">
+									<option value="automobil" selected>automobil</option>
+									<option value="skuter">skuter</option>
+									<option value="bicikl">bicikl</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="markaNovoVozilo" class="col-sm-6 control-label" style="align-content: center">MARKA:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="marka-novo-vozilo">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="modelNovoVozilo" class="col-sm-6 control-label" style="align-content: center">MODEL:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="model-novo-vozilo">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="godinaNovoVozilo" class="col-sm-6 control-label" style="align-content: center">GODINA:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="godina-novo-vozilo">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="registracijaNovoVozilo" class="col-sm-6 control-label" style="align-content: center">REGISTRACIJA:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="registracija-novo-vozilo">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="napomenaNovoVozilo" class="col-sm-6 control-label" style="align-content: center">NAPOMENA:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="napomena-novo-vozilo">
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Odustani</button>
+						<button id="potvrda-novo-vozilo" class="btn btn-primary">Potvrdi</button>
+					</div>	
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- ***Modalni dijalog izmene postojeceg vozila*** -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="izmeni-vozilo-modal" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Dodavanje vozila</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form id="izmeni-vozilo-forma" class="form-horizontal" method="PUT" role="form">
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="tipIzmeniVozilo" class="col-sm-6 control-label">TIP VOZILA:</label>
+							<div class="col-sm-10">
+								<select id="tip-izmeni-vozilo" name="tip-izmeni-vozilo" class="form-control">
+									<option value="automobil" selected>automobil</option>
+									<option value="skuter">skuter</option>
+									<option value="bicikl">bicikl</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="markaIzmeniVozilo" class="col-sm-6 control-label" style="align-content: center">MARKA:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="marka-izmeni-vozilo">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="modelIzmeniVozilo" class="col-sm-6 control-label" style="align-content: center">MODEL:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="model-izmeni-vozilo">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="godinaIzmeniVozilo" class="col-sm-6 control-label" style="align-content: center">GODINA:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="godina-izmeni-vozilo">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="registracijaIzmeniVozilo" class="col-sm-6 control-label" style="align-content: center">REGISTRACIJA:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="registracija-izmeni-vozilo">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="napomenaIzmeniVozilo" class="col-sm-6 control-label" style="align-content: center">NAPOMENA:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="napomena-izmeni-vozilo">
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Odustani</button>
+						<button id="potvrda-izmeni-vozilo" class="btn btn-primary">Potvrdi</button>
+					</div>	
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- ***Modalni dijalog dodavanja novog artikla*** -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="novi-artikl-modal" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Dodavanje artikla</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="novi-artikl-forma" class="form-horizontal" method="POST" role="form">
+                    <div class="modal-body">
+                        <div class="form-group">
+							<label for="nazivNoviArtikl" class="col-sm-6 control-label" style="align-content: center">NAZIV:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="naziv-novi-artikl">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="tipNoviArtikl" class="col-sm-6 control-label">TIP JELA:</label>
+							<div class="col-sm-10">
+								<select id="tip-novi-artikl" name="tip-novi-artikl" class="form-control">
+									<option value="jelo">jelo</option>
+									<option value="pice">piće</option>
+								</select>
+							</div>
+						</div>
+                        <div class="form-group">
+							<label for="kolicinaNoviArtikl" class="col-sm-6 control-label" style="align-content: center">KOLIČINA:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="kolicina-novi-artikl">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="opisNoviArtikl" class="col-sm-6 control-label" style="align-content: center">OPIS:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="opis-novi-artikl">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="jedCenaNoviArtikl" class="col-sm-6 control-label" style="align-content: center">JEDINIČNA CENA:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="jed-cena-novi-artikl">
+							</div>
+						</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Odustani</button>
+                        <button id="potvrda-novi-artikl" class="btn btn-primary">Potvrdi</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+	</div>
+	<!-- ***Modalni dijalog izmene postojeceg artikla*** -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="izmeni-artikl-modal" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Izmena artikla</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="izmena-artikl-forma" class="form-horizontal" method="PUT" role="form">
+                    <div class="modal-body">
+                        <div class="form-group">
+							<label for="nazivIzmeniArtikl" class="col-sm-6 control-label" style="align-content: center">NAZIV:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="naziv-izmeni-artikl">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="tipIzmeniArtikl" class="col-sm-6 control-label">TIP JELA:</label>
+							<div class="col-sm-10">
+								<select id="tip-izmeni-artikl" name="tip-izmeni-artikl" class="form-control">
+									<option value="jelo" selected>jelo</option>
+									<option value="pice">piće</option>
+								</select>
+							</div>
+						</div>
+                        <div class="form-group">
+							<label for="kolicinaIzmeniArtikl" class="col-sm-6 control-label" style="align-content: center">KOLIČINA:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="kolicina-izmeni-artikl">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="opisIzmeniArtikl" class="col-sm-6 control-label" style="align-content: center">OPIS:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="opis-izmeni-artikl">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="jedCenaIzmeniArtikl" class="col-sm-6 control-label" style="align-content: center">JEDINIČNA CENA:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="jed-cena-izmeni-artikl">
+							</div>
+						</div>
+					</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Odustani</button>
+                        <button id="potvrda-izmeni-artikl" class="btn btn-primary">Potvrdi</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+	</div>
+    <!-- ***Modalni dijalog dodavanja novog restorana*** -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="novi-restoran-modal" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Dodavanje restorana</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="novi-restoran-forma" class="form-horizontal" method="POST" role="form">
+                    <div class="modal-body">
+                        <div class="form-group">
+							<label for="nazivNoviRestoran" class="col-sm-6 control-label" style="align-content: center">NAZIV:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="naziv-novi-restoran">
+							</div>
+						</div>
+                        <div class="form-group">
+							<label for="adresaNoviRestoran" class="col-sm-6 control-label" style="align-content: center">ADRESA:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="adresa-novi-restoran">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="kategorijaNoviRestoran" class="col-sm-6 control-label">KATEGORIJA RESTORANA:</label>
+							<div class="col-sm-10">
+								<select id="kategorija-novi-restoran" class="form-control">
+									<option value="domaća kuhinja">domaća kuhinja</option>
+									<option value="roštilj">roštilj</option>
+									<option value="kineski restoran">kineski restoran</option>
+                                    <option value="indijski restoran">indijski restoran</option>
+									<option value="poslastičarnica">poslastičarnica</option>
+									<option value="picerija">picerija</option>
+								</select>
+							</div>
+						</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Odustani</button>
+                        <button id="potvrda-novi-restoran" class="btn btn-primary">Potvrdi</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ***Modalni dijalog izmene postojećeg restorana*** -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="izmeni-restoran-modal" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Izmena restorana</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="izmena-restoran-forma" class="form-horizontal" method="PUT" role="form">
+                    <div class="modal-body">
+                        <div class="form-group">
+							<label for="nazivIzmeniRestoran" class="col-sm-6 control-label" style="align-content: center">NAZIV:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="naziv-izmeni-restoran">
+							</div>
+						</div>
+                        <div class="form-group">
+							<label for="adresaIzmeniRestoran" class="col-sm-6 control-label" style="align-content: center">ADRESA:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="adresa-izmeni-restoran">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="kategorijIzmeniaRestoran" class="col-sm-6 control-label">KATEGORIJA RESTORANA:</label>
+							<div class="col-sm-10">
+								<select id = "kategorija-izmeni-restoran" name="kategorija-izmeni-restoran" class="form-control">
+									<option value="domaća kuhinja">domaća kuhinja</option>
+									<option value="roštilj">roštilj</option>
+									<option value="kineski restoran">kineski restoran</option>
+                                    <option value="indijski restoran">indijski restoran</option>
+									<option value="poslastičarnica">poslastičarnica</option>
+									<option value="picerija">picerija</option>
+								</select>
+							</div>
+						</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Odustani</button>
+                        <button id="potvrda-izmeni-restoran" class="btn btn-primary">Potvrdi</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ***Modalni dijalog izmena korisnika*** -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="izmeni-korisnika-modal" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Izmena korisnika</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="izmena-korisnika-forma" class="form-horizontal" method="PUT" role="form">
+                    <div class="modal-body">
+                        <div class="form-group">
+							<label for="korisnickoImeIzmena" class="col-sm-6 control-label" style="align-content: center">USERNAME:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="username-izmena-korisnika" readonly="readonly">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="ulogaKorisnika" class="col-sm-6 control-label">ULOGA:</label>
+							<div class="col-sm-10">
+								<select id="uloga-izmena-korisnika" name="uloga-izmena-korisnika" class="form-control">
+									<option value="administrator">administrator</option>
+									<option value="dostavljac">dostavljač</option>
+									<option value="kupac">kupac</option>
+								</select>
+							</div>
+						</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Odustani</button>
+                        <button id="potvrda-izmene-korisnika" class="btn btn-primary">Potvrdi</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</html>

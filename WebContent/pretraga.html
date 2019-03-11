@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pretraga</title>
+    
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="css/pretraga.css">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css">
+    <script src="js/loadpage.js"></script>
+    <script src="js/pretraga.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<nav>
+			<div class="home">
+				<a href="homepage.html">POČETNA</a>
+			</div>
+
+			<div class="menu">
+				<ul>
+					<li><a id="restaurantsPanel" href="restaurants.html">Restorani</a></li>
+					<li><a id="pretragaPanel" href="pretraga.html">Pretraga</a></li>
+					<li><a id="korpaPanel" href="korpa.html">Korpa</a></li>
+					<li><a id="profilPanel" href="profil.html">Profil</a></li>
+					<li><a class="active" id="login" href="login-register.html">Log
+							In</a></li>
+					<li><a class="active" id="logout" href="#">Log Out</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div id="page-content">
+			<!-- Sidebar -->
+			<div id="sidebar-wrapper">
+				<ul class="sidebar-nav">
+					<div id="kategorije-pretrage">
+						<li><a href="#" id="pretraga-restorana">Restorani</a></li>
+						<li><a href="#" id="pretraga-artikala">Artikli</a></li>
+					</div>
+				</ul>
+			</div>
+			<!-- Page content -->
+			<div id="page-content-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12">
+							<a href="#" class="btn btn-success" id="sidebar-toggle">OPCIJE</a>
+						</div>
+                    </div>
+
+                    <br>
+
+                    <!-- Naslovi za pretragu -->
+					<div class="col-lg-8 col-lg-offset-2" id="naslov-pretraga-restorana">
+                        <h3>Pretraga restorana...</h3> 
+					</div>
+					<div class="col-lg-8 col-lg-offset-2" id="naslov-pretraga-artikala">
+                        <h3>Pretraga artikala...</h3>
+                    </div>
+
+                    <br>
+
+                    <!-- Izlistavanje sadrzaja pretrage -->
+                    <div class="row" id="sadrzaj-pretraga-restorana">
+                        
+                    </div>
+
+					<div id="sadrzaj-pretraga-artikala">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">NAZIV</th>
+									<th scope="col">KOLIČINA</th>
+									<th scope="col">OPIS</th>
+									<th scope="col">CENA</th>
+									<th colspan="2">PORUČI</th>
+								</tr>
+							</thead>
+							<tbody id="pretraga-artikli-tbody-id">
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/sidebarToggle.js"></script>
+</body>
+    <!-- ***Modalni dijalog pretrage restorana*** -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="pretraga-restoran-modal" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Pretraga restorana</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="pretraga-restoran-forma" class="form-horizontal" method="GET" role="form">
+                    <div class="modal-body">
+                        <div class="form-group">
+							<label for="nazivPretragaRestoran" class="col-sm-6 control-label" style="align-content: center">NAZIV:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="pretraga-naziv-restorana" placeholder="Unesite naziv...">
+							</div>
+						</div>
+                        <div class="form-group">
+							<label for="adresaNoviRestoran" class="col-sm-6 control-label" style="align-content: center">ADRESA:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="pretraga-adresa-restorana" placeholder="Unesite adresu...">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="kategorijaPretragaRestoran" class="col-sm-6 control-label">KATEGORIJA RESTORANA:</label>
+							<div class="col-sm-10">
+								<select id="pretraga-kategorija-restorana" class="form-control">
+									<option value="" selected>Odaberite kategoriju...</option>
+                                    <option value="domaća kuhinja">domaća kuhinja</option>
+                                    <option value="roštilj">roštilj</option>
+                                    <option value="kineski restoran">kineski restoran</option>
+                                    <option value="indijski restoran">indijski restoran</option>
+                                    <option value="poslastičarnica">poslastičarnica</option>
+                                    <option value="picerija">picerija</option>
+								</select>
+							</div>
+						</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Odustani</button>
+                        <button id="potvrda-pretraga-restoran" class="btn btn-primary">Pretraži</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ***Modalni dijalog pretrage artikla*** -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="pretraga-artikl-modal" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Pretraga artikla</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="pretraga-artikl-forma" class="form-horizontal" method="GET" role="form">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nazivPretragaArtikl" class="col-sm-6 control-label" style="align-content: center">NAZIV:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="pretraga-naziv-artikl">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tipPretragaArtikl" class="col-sm-6 control-label">TIP JELA:</label>
+                            <div class="col-sm-10">
+                                <select id="pretraga-tip-artikl" name="pretraga-tip-artikl" class="form-control">
+                                        <option value="" selected>Odaberite tip...</option>
+                                    <option value="jelo">jelo</option>
+                                    <option value="piće">piće</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="jedCenaPretragaArtikl" class="col-sm-6 control-label" style="align-content: center">OKVIRNA CENA:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="pretraga-cena-artikl">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="restoranPretragaArtikl" class="col-sm-6 control-label" style="align-content: center">RESTORAN:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="pretraga-restoran-artikl">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Odustani</button>
+                        <button id="potvrda-pretraga-artikl" class="btn btn-primary">Pretraži</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</html>

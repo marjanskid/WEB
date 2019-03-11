@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Korpa</title>
+    
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="css/korpa.css">
+    <script src="js/loadpage.js"></script>
+    <script src="js/korpa.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+        <!-- Navibar -->
+        <nav>
+            <div class="home">
+                <a href="homepage.html">POČETNA</a>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a id="restaurantsPanel" href="restaurants.html">Restorani</a></li>
+                    <li><a id="pretragaPanel" href="pretraga.html">Pretraga</a></li>
+                    <li><a id="korpaPanel" href="korpa.html">Korpa</a></li>
+                    <li><a id="profilPanel" href="profil.html">Profil</a></li>
+                    <li><a class="active" id="login" href="login-register.html">Log In</a></li>
+                    <li><a class="active" id="logout" href="#">Log Out</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="content">
+            <div id="tabela-korpa-svi">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h3>Pregled artikala u korpi...</h3>
+                </div>
+                <br>
+                <div id="tabela-stavki-u-korpi">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">NAZIV</th>
+                                <th scope="col">CENA</th>
+                                <th scope="col">IZBACI</th>
+                            </tr>
+                        </thead>
+                        <tbody id="artikli-tbody-id">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div id="deo-ispod-tabele-stavki">
+                <table class="table table">
+                    <tr>
+                        <td >
+                            <label class="col-sm-12 control-label" style="align-content: center">CENA PORUDŽBINE:</label>
+                        </td>
+                        <td>
+                            <label class="col-sm-12 control-label" style="align-content: center" id="prikaz-cene-korpe"></label>
+                        </td>
+                        <td>
+                            <button id="otvori-modal-korpe" class="btn btn-primary">Dovrši porudžbinu</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        
+    </div>
+    
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+</body>
+    <!-- ***Modalni dijalog kreiranja nove porudzbine*** -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="rezime-porudzbine-modal" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Rezime porudžbine</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form id="nova-porudzbina-forma" class="form-horizontal" method="POST" role="form">
+					<div class="modal-body">
+						<div class="form-group" id="tabela-stavki-u-korpi-modal">
+							<table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">NAZIV</th>
+                                        <th scope="col">CENA</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="artikli-tbody-id-modal">
+                                </tbody>
+                            </table>
+						</div>
+						<div class="form-group">
+							<div id="deo-ispod-tabele-stavki-modal">
+                                <table class="table table">
+                                    <tr>
+                                        <td >
+                                            <label class="col-sm-12 control-label" style="align-content: center">CENA PORUDŽBINE:</label>
+                                        </td>
+                                        <td>
+                                            <label class="col-sm-12 control-label" style="align-content: center" id="prikaz-cene-korpe-modal"></label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+						</div>
+						<div class="form-group">
+							<label for="napomenaNovaPorudzbina" class="col-sm-6 control-label" style="align-content: center">NAPOMENA:</label>
+							<div class="col-sm-12">
+                                <textarea class="form-control" rows="5" id="napomena-nova-porudzbina"></textarea>
+							</div>
+                        </div>
+						<div class="form-group">
+							<div id="bonus-poeni-prikaz-modal">
+                                <table class="table table">
+                                    <tr>
+                                        <td >
+                                            <label class="col-sm-8 control-label" style="align-content: center">BONUS POENI:</label>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" id="koliko-bonus-poena-modal" name="koliko-bonus-poena-modal">
+                                                
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Odustani</button>
+						<button id="potvrda-novo-porudzbina" class="btn btn-primary">Potvrdi</button>
+					</div>	
+				</form>
+			</div>
+		</div>
+	</div>
+</html>
